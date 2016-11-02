@@ -1,0 +1,11 @@
+<h1>index</h1>
+<ul>
+    <li ng-repeat="prop in result">
+        <span>{{ prop.name }}</span>
+        <span>{{ prop.checked }}</span>
+        <span>{{ prop.description }}</span>
+        <span><a href="#/update/{{ prop.id }}">Update</a></span>
+        <button ng-click="delete(prop)">Delete</button>
+    </li>
+</ul>
+<button ng-click="redirectUrl()">Create</button>

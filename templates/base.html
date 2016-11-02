@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html ng-app="ToDoList">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To Do List</title>
+</head>
+{% verbatim %}
+<body ng-controller="ToDoListCtrl">
+<div><ng-view></ng-view></div>
+{% endverbatim %}
+<!-- jQuery -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/angular.min.js' %}"></script>
+<script src="{% static 'js/angular-route.min.js' %}"></script>
+<script src="{% static 'js/angular-resource.min.js' %}"></script>
+<script src="{% static 'js/controller.js' %}"></script>
+<script>
+    window.csrf_token = "{{ csrf_token }}";
+</script>
+</body>
+
+</html>
