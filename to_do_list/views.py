@@ -24,18 +24,6 @@ class GetDataView(TemplateView):
         return HttpResponse(serialized_q)
 
 
-class ChangeView(UpdateView):
-    def get(self, *args, **kwargs):
-        to_do_list = ToDoList.objects.filter(
-            pk=int(kwargs.get('to_do_list_pk'))
-        ).values(
-            'id', 'name', 'checked', 'description'
-        )
-        all_dict = ValuesQuerySetToDict(to_do_list)
-        serialized_q = json.dumps(all_dict)
-        return JsonResponse(serialized_q, safe=False)
-
-
 def create_new(request):
     request_body = json.loads(request.body)
     name = request_body.get('name')
